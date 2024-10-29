@@ -41,20 +41,20 @@ let backend = new Backend()
 
 function BarChart (props)  {
 
-    // const data = {
-    //     labels: ['Mon', 'Tue', 'Wed'],
-    //     datasets : [
-    //         {
-    //             label : 'Branch',
-    //             data : [100, 200, 300],
-    //             backgroundColor : "#61DBFB"
-    //         }
-    //     ]
-    // }
+    const data = {
+        labels: Object.keys(props.predictions),
+        datasets : [
+            {
+                label : 'Job matches percentage',
+                data : Object.values(props.predictions).map(value => value * 100),
+                backgroundColor : "#61DBFB"
+            }
+        ]
+    }
 
 
     useEffect(() => {
-        console.log("From BarChart", props.predictions);
+        console.log("From BarChart",  Object.keys(props.predictions).length);
     }, []);
 
     return (
