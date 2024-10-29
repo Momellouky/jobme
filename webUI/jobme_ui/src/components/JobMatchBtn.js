@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Backend from "./utils/backend"
+import BarChart from "./BarChart";
 
 
 
@@ -7,11 +8,10 @@ function JobMatchBtn(props) {
 
         let checked_skills = []
         let backend = new Backend()
-        let predictions = undefined
 
+        let [predictions, setPredictions] = useState({})
         let [skillsCheckboxChanged, setSkills_checkboxesChanged] = useState(0)
         const [skillsCheckboxes, setSkillsCheckboxes] = useState();
-
 
         const handleCheckedSkills = () => {
             console.log("Button clicked");
@@ -23,7 +23,8 @@ function JobMatchBtn(props) {
             try{
                 var promise = backend.makePrediction(checked_skills)
                 promise.then((result) => {
-                    backend.update()
+                    setPredictions(result)
+                    console.log("result from JobMatchBtn.js: ", result)
                 })
 
             }catch (error){
@@ -55,6 +56,12 @@ function JobMatchBtn(props) {
                         onClick={handleCheckedSkills}
                     >Which job match my skills</button>
                 </div>
+
+                {
+                    (Object.keys(predictions).length === 0 && predictions.constructor === Object ) ?
+                        <></> :
+                        <BarChart predictions={predictions} />
+                }
             </div>
         );
 }

@@ -3,9 +3,12 @@ import skills from "../Skills";
 
 
 class Backend {
-    constructor () {
-        this.prediction = undefined;
+
+    constructor() {
+
     }
+
+
 
     makePrediction(skills) {
 
@@ -23,7 +26,6 @@ class Backend {
                 return {}
             }
             getPrediction(skills).then(response => {
-                this.prediction = response.data;
                 resolve(response.data)
 
             }).catch(error => {
@@ -35,9 +37,7 @@ class Backend {
 
     }
 
-    update() {
-        console.log("update function" , this.prediction)
-    }
+
 
 
 }

@@ -13,7 +13,6 @@ function Home(props)  {
          <div>
                 <Skills />
                 <JobMatchBtn />
-                <BarChart />
          </div>
      );
 

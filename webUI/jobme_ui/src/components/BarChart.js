@@ -10,6 +10,7 @@ import {
     Legend
 } from 'chart.js';
 import getPrediction from "./utils/httpRequests";
+import Backend from "./utils/backend"
 
 // import {render} from "@testing-library/react";
 
@@ -36,24 +37,34 @@ const options = {
     indexAxis: 'y'
 }
 
+let backend = new Backend()
+
 function BarChart (props)  {
 
+    // const data = {
+    //     labels: ['Mon', 'Tue', 'Wed'],
+    //     datasets : [
+    //         {
+    //             label : 'Branch',
+    //             data : [100, 200, 300],
+    //             backgroundColor : "#61DBFB"
+    //         }
+    //     ]
+    // }
+
+
     useEffect(() => {
-        getPrediction(['Python', 'Numpy', 'Pandas']).then(response => {
-            console.log(response.data);
-        }).catch(error => {
-            alert(error);
-        })
+        console.log("From BarChart", props.predictions);
     }, []);
 
-        return (
-            <div className='d-flex flex-wrap justify-content-center'>
-                <div className='m-5 w-50 '>
-                    <Bar data={data} options={options}/>
-                </div>
+    return (
+        <div className='d-flex flex-wrap justify-content-center'>
+            <div className='m-5 w-50 '>
+                <Bar data={data} options={options}/>
             </div>
+        </div>
 
-        );
+    );
 
 }
 
