@@ -4,11 +4,27 @@
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
 
+<img src="./docs/docs/img/jobme_illustration.gif">
+
 **Find me the most suitable job based on my skillset**
 
-As a fresh graduate from an Intelligent, Autonomous and Interactive Systems Degree. Let's build a system that will help me to find a job. 
+As a fresh graduate student from an Intelligent, Interactive and Autonomous Systems (SIIA) Degree At the university of Western Brittany. Let's build a system that will help me find a job. 
 
-*Jobme* is an AI-based System that suggests different stacks to the user based on his/her skill set. 
+## What is Jobme
+
+**Jobme** is an AI-based system that suggests various IT stacks/jobs based on the user's skills.
+
+## Why Build Jobme
+
+I hold a bachelor degree in computer engineer. After that, I pursued a master degree in Intelligent, Interactive and Autonomous Systems. 
+
+During the university, I built strong skills in various fields including back-end development, High Parallel Computing and Machine Learning.
+The skills set required to work on these domains is wide. In fact, I learnt to code with different programming languages in different programming 
+paradigms implementing different architectures. 
+
+Looking for the first job is a challenge. With a large set of skills a candidate may become distracted and he/she may take an subjective career choice. 
+The aim of this machine learning model is to make a rational decision based on existing data. 
+
 
 ## Project Organization
 
@@ -36,7 +52,11 @@ As a fresh graduate from an Intelligent, Autonomous and Interactive Systems Degr
 ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
 │
 ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+│   └── figures        <- Generated graphics and figures to be used in 
+│
+├── script             <- Flask API that exposes a model via an endpoint
+│
+├── webui              <- Web user interface to interact with the model API             
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         generated with `pip freeze > requirements.txt`
@@ -63,3 +83,8 @@ As a fresh graduate from an Intelligent, Autonomous and Interactive Systems Degr
 
 --------
 
+## What to contribute ? 
+
+Raise an issue or contact the author via : 
+
+contact.mellouky@gmail.com
