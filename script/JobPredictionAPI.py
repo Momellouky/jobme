@@ -6,11 +6,14 @@ CLUSTERS_YAML_PATH = "../data/processed/feature_engineering/features_skills_clus
 
 from JobPrediction import JobPrediction
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 # ------------------------------------------
 
 # Initiate API and JobPrediction object
 app = Flask(__name__)
+CORS(app)
+
 job_model = JobPrediction(mlflow_uri=MLFLOW_TRACKING_URI,
                           run_id=MLFLOW_RUN_ID,
                           clusters_yaml_path=CLUSTERS_YAML_PATH)
