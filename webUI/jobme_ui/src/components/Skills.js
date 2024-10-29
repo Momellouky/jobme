@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 // import {render} from "@testing-library/react";
 
 
@@ -23,13 +23,13 @@ const SKILL_SET = ['HTML/CSS', 'JavaScript', 'MySQL', 'SQL', 'PHP', 'Windows',
 
 const Skills = (props) => {
 
-    return (
+        return (
         <div className='container mt-5'>
             <div className='d-flex flex-wrap justify-content-center'>
                 {SKILL_SET.map((skill, index) => (
-                    <div key={index} className="form-check m-2">
+                    <div key={index} className="form-check m-2 skill_set">
                         <input
-                            className="form-check-input"
+                            className="form-check-input skill_checkbox"
                             type="checkbox"
                             id={`checkbox-${index}`}
                             value={skill}
@@ -41,7 +41,7 @@ const Skills = (props) => {
                 ))}
             </div>
         </div>
-    );
+        );
 }
 
 export default Skills;

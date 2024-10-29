@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Bar} from 'react-chartjs-2'
 
 import {
@@ -9,6 +9,7 @@ import {
     Tooltip,
     Legend
 } from 'chart.js';
+import getPrediction from "./utils/httpRequests";
 
 // import {render} from "@testing-library/react";
 
@@ -37,7 +38,13 @@ const options = {
 
 function BarChart (props)  {
 
-
+    useEffect(() => {
+        getPrediction(['Python', 'Numpy', 'Pandas']).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+            alert(error);
+        })
+    }, []);
 
         return (
             <div className='d-flex flex-wrap justify-content-center'>
