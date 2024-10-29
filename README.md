@@ -83,6 +83,34 @@ The aim of this machine learning model is to make a rational decision based on e
 
 --------
 
+## Running the project 
+
+To run the project in your localhost. It would be easy to clone the **docerize** branch. Then, build and run the docker image.
+
+You can interacte with the model via an HTTP request throught POSTMAN (or equivalent), or you can directly start the web UI via a `npm start` command. 
+
+**STEP 1**: 
+
+This command will build the docker image described in the _dockerfile_
+
+`
+docker build -t model_img
+`
+
+**STEP 2**
+
+Run the built docker image: 
+
+`
+docker run --name container_name -p 5000:5000 model_img 
+`
+
+This requires to have docker installed in your machine. 
+
+If you can't work with containers, you can just install manually the requirements mentioned in `requirements_prod.txt` file. 
+These requirements will be able to run the development server, but we expect some issues when it comes to run the notebooks. 
+
+
 ## What to contribute ? 
 
 Raise an issue or contact the author via : 
