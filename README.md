@@ -16,13 +16,13 @@ As a fresh graduate student from an Intelligent, Interactive and Autonomous Syst
 
 ## Why Build Jobme
 
-I hold a bachelor degree in computer engineer. After that, I pursued a master degree in Intelligent, Interactive and Autonomous Systems. 
+I hold a bachelor degree in computer engineering. After that, I pursued a master degree in Intelligent, Interactive and Autonomous Systems. 
 
 During the university, I built strong skills in various fields including back-end development, High Parallel Computing and Machine Learning.
-The skills set required to work on these domains is wide. In fact, I learnt to code with different programming languages in different programming 
+The skills set required to work on these domains is wide. In fact, I learnt to code with different programming languages, in different programming 
 paradigms implementing different architectures. 
 
-Looking for the first job is a challenge. With a large set of skills a candidate may become distracted and he/she may take an subjective career choice. 
+Looking for the first job is a challenge. With a large set of skills a candidate may become distracted and he/she may take a subjective career choice. 
 The aim of this machine learning model is to make a rational decision based on existing data. 
 
 
@@ -85,9 +85,9 @@ The aim of this machine learning model is to make a rational decision based on e
 
 ## Running the project 
 
-To run the project in your localhost. It would be easy to clone the **docerize** branch. Then, build and run the docker image.
+To run the project in your localhost. It would be easy to clone the **dockerize** branch. Then, build and run the docker image.
 
-You can interacte with the model via an HTTP request throught POSTMAN (or equivalent), or you can directly start the web UI via a `npm start` command. 
+You can interacte with the model via an HTTP request through POSTMAN (or equivalent), or you can directly start the web UI via a `npm start` command. 
 
 **STEP 1**: 
 
