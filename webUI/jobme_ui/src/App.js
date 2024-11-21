@@ -48,6 +48,16 @@ function App() {
                                   </Link>
                               </a>
                           </li>
+                          <li >
+                              <a>
+                                  <Link
+                                      onClick={() => setCurrentRoute("jobs_v2")}
+                                      className={CurrentRoute === 'jobs_v2' ? 'btn btn-primary' : 'btn btn-link'}
+                                      to={"/jobs_v2"}>
+                                      version 2 beta
+                                  </Link>
+                              </a>
+                          </li>
                       </ul>
                   </div>
               </nav>
