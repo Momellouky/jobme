@@ -46,7 +46,7 @@ function BarChart (props)  {
         datasets : [
             {
                 label : 'Job matches percentage',
-                data : Object.values(props.predictions).map(value => value * 100),
+                data : Object.values(props.predictions).map(value => value) ,
                 backgroundColor : "#61DBFB"
             }
         ]
@@ -54,7 +54,7 @@ function BarChart (props)  {
 
 
     useEffect(() => {
-        console.log("From BarChart",  Object.keys(props.predictions).length);
+        console.log("From BarChart",  Object.values(props.predictions));
     }, []);
 
     return (

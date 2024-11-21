@@ -1,10 +1,27 @@
 import axios from "axios";
-import skills from "../Skills";
 
-const webClient = axios.create({
-    baseURL: "http://127.0.0.1:5000",
-})
 
-export default function getPrediction(skills) {
-    return webClient.post("predict_jobs_probs", skills)
+ class httpRequests {
+
+    constructor(port, baseURL) {
+        this.port = port
+        this.baseURL = baseURL + port
+        this.webClient = axios.create({
+            baseURL: baseURL,
+        })
+
+        this.endpoint = this.baseURL + "/predict_jobs_probs"
+
+        if(this.port === 8080){
+            this.endpoint = this.baseURL + "/api/prediction/jobs"
+        }
+    }  
+
+    getPrediction(skills) {
+        return this.webClient.post(this.endpoint, skills)
+    }
+
 }
+
+
+export default httpRequests
