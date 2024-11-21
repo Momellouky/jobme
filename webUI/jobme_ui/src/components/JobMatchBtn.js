@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import Backend from "./utils/backend"
 import BarChart from "./BarChart";
+import Gateway from "./utils/Gateway";
 
 
 
 function JobMatchBtn(props) {
 
         let checked_skills = []
-        let backend = new Backend()
+        const gateway = Gateway.getInstance();
+        let backend = Backend.getInstance(
+            gateway.routeRequest(5000)
+        )
 
         let [predictions, setPredictions] = useState({})
         let [skillsCheckboxChanged, setSkills_checkboxesChanged] = useState(0)

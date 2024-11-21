@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About"
 import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import JobMatchLLM from "./components/JobMatchLLM";
 
 
 function App() {
@@ -48,6 +49,16 @@ function App() {
                                   </Link>
                               </a>
                           </li>
+                          <li >
+                              <a>
+                                  <Link
+                                      onClick={() => setCurrentRoute("jobs_v2")}
+                                      className={CurrentRoute === 'jobs_v2' ? 'btn btn-primary' : 'btn btn-link'}
+                                      to={"/jobs_v2"}>
+                                      version 2 beta
+                                  </Link>
+                              </a>
+                          </li>
                       </ul>
                   </div>
               </nav>
@@ -57,6 +68,7 @@ function App() {
           <Routes>
               <Route path={"/"} element={<Home />}></Route>
               <Route path={"/about"} element={<About />}></Route>
+              <Route path={"/jobs_v2"} element={<JobMatchLLM />}></Route>
           </Routes>
       </BrowserRouter>
   );

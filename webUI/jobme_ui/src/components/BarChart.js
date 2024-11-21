@@ -9,8 +9,7 @@ import {
     Tooltip,
     Legend
 } from 'chart.js';
-import getPrediction from "./utils/httpRequests";
-import Backend from "./utils/backend"
+import getPrediction from "./utils/httpClient";
 
 // import {render} from "@testing-library/react";
 
@@ -37,7 +36,6 @@ const options = {
     indexAxis: 'y'
 }
 
-let backend = new Backend()
 
 function BarChart (props)  {
 
