@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import Backend  from './utils/backend'
 import BarChart from './BarChart';
 import { useState } from 'react';
+import Gateway from "./utils/Gateway";
 
 export default function JobMatchLLM() {
   
-
-    const backend = new Backend(8080, "http://127.0.0.1:")
+    const gateway = Gateway.getInstance();
+    const backend = Backend.getInstance(
+        gateway.routeRequest(8080)
+    )
     const [predictions, setPredictions] = useState({})
 
     const handleSubmit = () => {    
@@ -15,7 +18,7 @@ export default function JobMatchLLM() {
         console.log("Skills: " + skills)
 
         
-        backend.makePrediction(skills, "llama").then((result) => {
+        backend.makePrediction(skills).then((result) => {
             setPredictions(result)
             console.log("Predictions made: " + result)
         }).catch((error) => {

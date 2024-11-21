@@ -13,14 +13,20 @@ import skills from "../Skills";
 class HttpClient {
 
     static #instance = undefined;
-    constructor(BaseURL) {
-        this.BaseURL = BaseURL;
+    constructor(RouteInfo) {
+        this.BaseURL = RouteInfo["BaseURL"];
+        this.EndPoint = RouteInfo["EndPoint"];
+
+        console.log("- this.BaseURL: ", this.BaseURL);
+        console.log("- this.EndPoint: ", this.EndPoint);
+
+
         this.webClient = axios.create({baseURL: this.BaseURL})
     }
 
-    static getInstance(BaseURL){
+    static getInstance(RouteInfo){
         if(HttpClient.#instance === undefined){
-            HttpClient.#instance = new HttpClient(BaseURL);
+            HttpClient.#instance = new HttpClient(RouteInfo);
         }
 
         return HttpClient.#instance;
@@ -63,8 +69,7 @@ class HttpClient {
          * - The `webClient` should be an instance of a suitable HTTP client library (e.g., Axios, Fetch, etc.).
          * - This function assumes the `skills` parameter is correctly formatted before being passed.
          */
-
-        return this.webClient.post(this.endPoint, skills)
+        return this.webClient.post("/" + this.EndPoint, skills)
     }
 
 }
