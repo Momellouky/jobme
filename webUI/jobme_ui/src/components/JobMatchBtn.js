@@ -7,7 +7,7 @@ import BarChart from "./BarChart";
 function JobMatchBtn(props) {
 
         let checked_skills = []
-        let backend = new Backend()
+        let backend = new Backend(5000, "http://127.0.0.1:")
 
         let [predictions, setPredictions] = useState({})
         let [skillsCheckboxChanged, setSkills_checkboxesChanged] = useState(0)
@@ -21,7 +21,11 @@ function JobMatchBtn(props) {
 
         function asynchMakePrediction() {
             try{
-                var promise = backend.makePrediction(checked_skills)
+                if(checked_skills.length > 90){
+                    alert("An issue raises. There is a maximum of 90 skills. More than 90 were found! ")
+                    return 
+                }
+                var promise = backend.makePrediction(checked_skills, 'rf')
                 promise.then((result) => {
                     setPredictions(result)
                     console.log("result from JobMatchBtn.js: ", result)

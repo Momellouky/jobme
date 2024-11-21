@@ -1,16 +1,19 @@
 import getPrediction from "./httpRequests";
 import skills from "../Skills";
+import httpRequests from "./httpRequests";
 
 
 class Backend {
 
-    constructor() {
-
+    constructor(port, baseURL) {
+        this.port = port
+        this.baseURL = baseURL
+        this.httpRequests = new httpRequests(this.port, this.baseURL)
     }
 
 
 
-    makePrediction(skills) {
+    makePrediction(skills, source) {
 
 
 
@@ -21,11 +24,13 @@ class Backend {
                 return {}
             }
 
-            if(skills.length > 90){
-                alert("An issue raises. There is a maximum of 90 skills. More than 90 were found! ")
-                return {}
+            if(source === "llama"){
+                this.port = 8080
+            }else{
+                this.port = 5000
             }
-            getPrediction(skills).then(response => {
+
+            this.httpRequests.getPrediction(skills).then(response => {
                 resolve(response.data)
 
             }).catch(error => {
