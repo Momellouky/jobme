@@ -1,4 +1,3 @@
-from mlflow.environment_variables import MLFLOW_EXPERIMENT_NAME
 
 LOG_DATA_PKL = "data.pkl"
 LOG_MODEL_PKL = "model.pkl"
@@ -9,7 +8,7 @@ MLFLOW_EXPERIMENT_NAME = "skills_jobs_stackoverflow"
 # -------------------------------------------------------------
 
 import os
-import sklearn
+# import sklearn
 import pickle
 import yaml
 
@@ -54,22 +53,27 @@ class JobPrediction:
         print("client.tracking_uri:", client.tracking_uri)
         print("experiments: ", client.search_experiments())
         print("current dir: ", os.getcwd())
+        print("ls self.tracking_uri ", os.listdir(self.tracking_uri))
+        print(f"ls current dir: {os.listdir(os.getcwd())}")
 
         exp = client.get_experiment_by_name("skills_jobs_stackoverflow")
         print("exp: ", exp)
         client.search_runs(exp.experiment_id)
         run = mlflow.get_run(self.run_id)
-        artificats_path = run.info.artifact_uri
-        artificats_path = artificats_path[8:] # Over engineered
+        artifacts_path = run.info.artifact_uri
+        print(f"artifacts_path: {artifacts_path}")
+        artifacts_path = artifacts_path[8:] # Over engineered
 
 
         # Load data pkl
-        data_path = os.path.join(artificats_path, LOG_DATA_PKL)
+        # data_path = os.path.join(artifacts_path, LOG_DATA_PKL)
+        data_path = "/app/models/mlruns/826215840783647024/88dd333d1e6a46029a6910bef05c43f3/artifacts/data.pkl"
         with open(data_path, 'rb') as handle:
             data_pkl = pickle.load(handle)
 
         # Load model
-        model_path = os.path.join(artificats_path, LOG_MODEL_PKL)
+        # model_path = os.path.join(artifacts_path, LOG_MODEL_PKL)
+        model_path = "./models/mlruns/826215840783647024/88dd333d1e6a46029a6910bef05c43f3/artifacts/model.pkl"
         with open(model_path, "rb") as f:
             model_pkl = pickle.load(f)
 

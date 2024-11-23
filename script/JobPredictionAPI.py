@@ -1,6 +1,6 @@
-MLFLOW_TRACKING_URI = '../models/mlruns'
+MLFLOW_TRACKING_URI = './models/mlruns'
 MLFLOW_RUN_ID = "88dd333d1e6a46029a6910bef05c43f3"
-CLUSTERS_YAML_PATH = "../data/processed/feature_engineering/features_skills_clusters_description.yaml"
+CLUSTERS_YAML_PATH = "./data/processed/feature_engineering/features_skills_clusters_description.yaml"
 
 # ------------------------------------------
 
@@ -39,4 +39,4 @@ def recommend_new_skills():
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000)
