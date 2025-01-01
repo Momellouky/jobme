@@ -14,9 +14,9 @@ export default function JobMatchLLM() {
 
     const handleSubmit = () => {    
         
-        const skills = document.getElementById("skills").value
-        console.log("Skills: " + skills)
-
+        let skills = document.getElementById("skills").value
+        skills = skills.split(",").map(skill => skill.trim());
+        console.log("Skills: " + skills);
         
         backend.makePrediction(skills).then((result) => {
             setPredictions(result)
